@@ -2,11 +2,43 @@
 <html lang="en">
 <head>
 <script src="js/lib/jquery.min.js"></script>
-<script src="js/button-example.js"></script>
+<script src="js/lib/bootstrap.js"></script>
+<link rel="stylesheet" href="fontawesome-free-5.11.2-web/css/all.css">
+<link rel="stylesheet" href="css/lib/bootstrap.css">
+<link rel="stylesheet" href="css/index.css">
 <title>Decentralized Fitness App</title>
 </head>
 <body>
-<p>Hello world</p> <br><br><br>
-<button type="button" id="btn">Get Data</button>
-<p id="php-data"></p>
+<div id="app-main">
+    <div class="container-fluid" id="main-container">
+        <div class="container" id="login-container">
+            <div class="row">
+                <div class="col-sm">
+                    <!-- empty column for formatting -->
+                </div>
+                <div class="col-6 justify-content-md-center">
+                    
+                    <p style="width:100%; text-align: center">
+                       <i class="fas fa-user-circle" style="font-size: 7em; color:#ffffff"></i>
+                    </p>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="loginUsername">Username</label>
+                            <input type="text" class="form-control" id="loginUsername" placeholder="Enter Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="loginSubmitBtn">Log In</button>
+                        <button type="submit" class="btn" id="loginForgotPasswordBtn">Forgot Password</button>
+                    </form>
+                </div>
+                <div class="col-sm">
+                        <!-- empty column for formatting -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
