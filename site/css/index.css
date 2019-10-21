@@ -1,6 +1,7 @@
-#app-main{
+body{
     height:100vh;
     width: 100%;
+    overflow:hidden;
 }
 
 #main-container
@@ -13,4 +14,42 @@
 #login-container
 {
     padding: 5%;
+}
+
+#root
+{
+    height:100vh;
+    width: 100%;
+    background-color: #9de1ed;
+}
+
+.appPageRoot
+{
+    height:100vh;
+    width: 100%;
+}
+
+/*******************************************************************************
+    HOME PAGE
+*******************************************************************************/
+#homePageContainer
+{
+    height: 100%;
+    width: 100vw;
+    float: left;
+}
+#homePageUserSideBar
+{
+    float: left;
+    max-width: 400px;
+    background-color: #80d0f0;
+}
+#homePageActionsContainer
+{
+    overflow: scroll;
+    height: 100%;
+}
+.homePageActionCard
+{
+    margin: 12px;
 }
