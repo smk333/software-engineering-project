@@ -1,6 +1,60 @@
 # software-engineering-project
 Code, written reports, and other deliverables for SWE Group 3
 
+# Git Workflows
+
+Our main branch is master. DO NOT commit to master. Our backup branch is STABLE. DO NOT commit to STABLE. Breanna will periodically migrate stable snapshots of master to STABLE.
+
+This assumes you are using git bash. If you use git GUIs, you're on your own for figuring that out.
+
+To work on a task, go to the master branch first with:
+```
+git checkout master
+```
+
+Run the following command to make sure you have no modified files, unstaged files, or commits not pushed:
+```
+git status
+```
+
+Create a new branch for your project with the command (without the bent brackets):
+```
+git branch <my-branch-name>
+```
+
+Move to your branch with
+```
+git checkout <my-branch-name>
+```
+
+Make your changes to the files as needed. After you changed your files, use the command below. Use '*' to add all files or run git status again and copy and paste the relative paths to the specific files you which to version control for everyone.
+```
+git add *
+```
+
+After you run git add, write a commit message using (please put a meaningful message in your commit! tell me what you changed and why)
+```
+git commit -m "commit message detailing the changes"
+```
+
+Continuing making commits until you changed all the code that needs to be fixed. When you are done, push your branch using
+```
+git push
+```
+
+If there have been changes to master, you can pull that into your branch with the command below. If there are merge conflicts, you must resolve them. I prefer using p4merge as a gui using 'git mergetool -t p4merge' (this requires additional set up not described here).
+```
+git pull "origin" master
+```
+
+Do some testing and make sure 100% super duper that your code is perfect. Once it's done, move it to the main branch with the following commands:
+```
+git checkout master
+git merge <my-branch-name>
+git push
+```
+
+
 # Style Guide
 
 ## Views
