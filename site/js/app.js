@@ -1,16 +1,14 @@
+/*******************************************************************************
+    App Main Code:
+    Run the app
+*******************************************************************************/
+
+var DecentralizedFitness = new DecentralizedFitness();
 
 /*******************************************************************************
-    Modify this to add pages to the nav system where the format follows:
-    <suburl> : <js file>
+    Nav Stuff: Only touch this if you really know what you're doing
 *******************************************************************************/
-const routes = {
-  '/' : home
-};
-
-
-/*******************************************************************************
-    HOME PAGE
-*******************************************************************************/
+routes = DecentralizedFitness.getRoutes();
 
 const rootDiv = document.getElementById('root');
 rootDiv.innerHTML = routes[window.location.pathname];
@@ -21,7 +19,14 @@ const onNavigate = (pathname) => {
     pathname,
     window.location.origin + pathname
   )
-  rootDiv.innerHTML = routes[pathname]
+
+  jQuery.ajax({
+      url: routes[pathname],
+      success: function (data) {
+        rootDiv.innerHTML = data;
+      }.bind(this),
+      async: false //async so this is done upon loading
+  });
 }
 
 window.onpopstate = () => {
