@@ -1,8 +1,6 @@
-
-
 .navbar 
 {
-    height: 56px;
+    z-index: 999999;
 }
 #app-main{
     height:100vh;
@@ -32,6 +30,12 @@
 {
     height:100vh;
     width: 100%;
+}
+
+.mainContentsContainer
+{
+    position: fixed;
+    top: 56px;
 }
 
 /*******************************************************************************
