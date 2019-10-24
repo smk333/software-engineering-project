@@ -3,12 +3,13 @@
 /*
  * Main system object, everything exists within here to bridge user interactions with the UI
  */
-var DecentralizedFitness = function(options){
+var AddDataView = function(){
  
     /*
      * Private member variables
      */
-    var m_views = [];
+    this.template = '/templates/addData.html';
+    this.url = '/dataEntry';
  
     /*
      * Can access this.method
@@ -25,27 +26,7 @@ var DecentralizedFitness = function(options){
     };
 
     var init = function() {
-        console.log('Initizalizing app...');
-
-        // init home view
-        m_views.push(new HomePageView());
-        m_views.push(new AddDataView());
-
-        console.log('Finished initializing app!');
     };
-
-    this.getRoutes = function()
-    {
-        routes = {};
-        for(var i = 0; i < m_views.length; ++i)
-        {
-            var u = m_views[i].url;
-            var t = m_views[i].template;
-            routes[u] = t;
-        }
-
-        return routes;
-    }
  
     /*
      * Public method
