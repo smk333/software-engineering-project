@@ -27,6 +27,13 @@ var AddDataView = function(){
 
     var init = function() {
     };
+
+    this.afterRender = function() {
+        $('#submitDataEntry').on('click', function(e){
+            var v = $('#dataEntryInput').val();
+            alert("Added data with value: " + v);
+        })
+    }
  
     /*
      * Public method

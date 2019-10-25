@@ -31,18 +31,49 @@
     </nav>
 
     <div id="addDataPageContainer" class="mainContentsContainer">
-        <div class="backToHomeActionContainer">
-            <div id="addDataBackToHomeButtonCont" onclick="onNavigate('/'); return false; ">
-                <i class="fas fa-arrow-alt-circle-left"></i>
-                BACK
-            </div>
-        </div>
-        <div class="container">
-            <div class="col">
-                hi
-            </div>
-            <div class="col">
-                hey
+        <div class="container full-container">
+            <div class="row tall-row">
+                <div class="col tall-column">
+                        <div class="backToHomeActionContainer">
+                            <div id="addDataBackToHomeButtonCont" onclick="onNavigate('/'); return false; ">
+                                <i class="fas fa-arrow-alt-circle-left"></i>
+                                BACK
+                            </div>
+                        </div>
+                        <div class="dataEntryFormContent">
+                                Data Type:
+                                <select class="form-control form-control-lg" id="addDataHealthDataTypeSelect">
+                                        <option>Sleep</option>
+                                        <option>Food</option>
+                                        <option>Walking distance</option>
+                                        <option>Heart Rate</option>
+                                </select>
+                                
+                                Units:
+                                <select class="form-control form-control-lg" id="addDataHealthDataTypeSelect">
+                                        <option>Hours</option>
+                                        <option>Calories</option>
+                                        <option>Steps</option>
+                                        <option>Kilometers</option>
+                                        <option>Miles</option>
+                                        <option>BPM</option>
+                                </select>
+                        </div>
+                        
+                    </div>
+                    <div class="col tall-column col-dark">
+                        <h3>Data Entry</h3>
+                        <div class="dataEntryFormContent">
+                        <form>
+                            <div class="form-group">
+                                <label for="dataEntryInput">Data</label>
+                                <input type="text" class="form-control" id="dataEntryInput" aria-describedby="emailHelp" placeholder="Enter today's data">
+                            </div>
+                            <button type="button" id="submitDataEntry" class="btn btn-primary">Submit</button>
+                        </form>
+                        </div>
+                    </div>
+
             </div>
         </div>
     </div>

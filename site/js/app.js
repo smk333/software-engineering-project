@@ -8,10 +8,9 @@ var DecentralizedFitness = new DecentralizedFitness();
 /*******************************************************************************
     Nav Stuff: Only touch this if you really know what you're doing
 *******************************************************************************/
-routes = DecentralizedFitness.getRoutes();
+routes = DecentralizedFitness.getViewsMappedByUrl();
 
 const rootDiv = document.getElementById('root');
-rootDiv.innerHTML = routes[window.location.pathname];
 
 const onNavigate = (pathname) => {
   window.history.pushState(
@@ -20,10 +19,13 @@ const onNavigate = (pathname) => {
     window.location.origin + pathname
   )
 
+  rootDiv.innerHTML = '<div class="loader"></div>';
+
   jQuery.ajax({
-      url: routes[pathname],
+      url: routes[pathname].template,
       success: function (data) {
         rootDiv.innerHTML = data;
+        routes[pathname].afterRender();
       }.bind(this),
       async: false //async so this is done upon loading
   });

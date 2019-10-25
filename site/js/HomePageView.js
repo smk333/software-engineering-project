@@ -28,6 +28,10 @@ var HomePageView = function(){
 
     var init = function() {
     };
+
+    this.afterRender = function() {
+        
+    }
  
     /*
      * Public method

@@ -34,13 +34,13 @@ var DecentralizedFitness = function(options){
         console.log('Finished initializing app!');
     };
 
-    this.getRoutes = function()
+    this.getViewsMappedByUrl = function()
     {
         routes = {};
         for(var i = 0; i < m_views.length; ++i)
         {
             var u = m_views[i].url;
-            var t = m_views[i].template;
+            var t = m_views[i];
             routes[u] = t;
         }
 
