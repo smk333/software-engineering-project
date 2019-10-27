@@ -30,6 +30,7 @@ var DecentralizedFitness = function(options){
         // init home view
         m_views.push(new HomePageView());
         m_views.push(new AddDataView());
+        m_views.push(new StatsVisualizationsView());
 
         console.log('Finished initializing app!');
     };

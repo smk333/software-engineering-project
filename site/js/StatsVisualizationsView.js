@@ -4,14 +4,14 @@
  * Main system object, everything exists within here to bridge user interactions with the UI
  */
 
-
-var AddDataView = function(){
+var StatsVisualizationsView = function(){
  
     /*
      * Private member variables
      */
-    this.template = '/templates/addData.html';
-    this.url = '/dataEntry';
+    this.html = '';
+    this.template = '/templates/vis.html';
+    this.url = '/statvis';
  
     /*
      * Can access this.method
@@ -28,13 +28,19 @@ var AddDataView = function(){
     };
 
     var init = function() {
+
+        // // load plotly lib via script tags
+        // var script = document.createElement("script"); //Make a script DOM node
+        // script.src = '/js/lib/plotly-latest.min.js'; //Set it's src to the provided URL
+        // document.head.appendChild(script); //Add it to the end of the head section of the page (could change 'head' to 'body' to add it to the end of the body section instead)
     };
 
     this.afterRender = function() {
-        $('#submitDataEntry').on('click', function(e){
-            var v = $('#dataEntryInput').val();
-            alert("Added data with value: " + v);
-        })
+        var TESTER = document.getElementById('tester');
+        Plotly.plot( TESTER, [{
+        x: [1, 2, 3, 4, 5],
+        y: [1, 2, 4, 8, 16] }], {
+        margin: { t: 0 } } );
     }
  
     /*
