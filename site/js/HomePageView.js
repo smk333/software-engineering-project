@@ -29,8 +29,13 @@ var HomePageView = function(){
     var init = function() {
     };
 
-    this.afterRender = function() {
-        
+    this.afterRender = function(a) {
+        $('#homepageCardBtnNavToAddData').on('click', function(e){
+            onNavigate('/dataEntry');
+        });
+        $('#homepageCardBtnNavToStats').on('click', function(e){
+            onNavigate('/statvis');
+        });
     }
  
     /*

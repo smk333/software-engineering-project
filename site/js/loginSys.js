@@ -82,31 +82,31 @@ var df = new DecentralizedFitness();
 *******************************************************************************/
 routes = df.getViewsMappedByUrl();
 
-const rootDiv = document.getElementById('root');
+// const rootDiv = document.getElementById('root');
 
-const onNavigate = (pathname, hackFix = false) => {
-  window.history.pushState(
-    {},
-    pathname,
-    window.location.origin + pathname
-  )
+// const onNavigate = (pathname, hackFix = false) => {
+//   window.history.pushState(
+//     {},
+//     pathname,
+//     window.location.origin + pathname
+//   )
 
-  rootDiv.innerHTML = '<div class="loader"></div>';
+//   rootDiv.innerHTML = '<div class="loader"></div>';
 
-  var url = (hackFix) ? 'site/' + routes[pathname].template : routes[pathname].template;
-  jQuery.ajax({
-      url: url,
-      success: function (data) {
-        rootDiv.innerHTML = data;
-        routes[pathname].afterRender();
-      }.bind(this),
-      async: false //async so this is done upon loading
-  });
-}
+//   var url = (hackFix) ? 'site/' + routes[pathname].template : routes[pathname].template;
+//   jQuery.ajax({
+//       url: url,
+//       success: function (data) {
+//         rootDiv.innerHTML = data;
+//         routes[pathname].afterRender(this);
+//       },
+//       async: false //async so this is done upon loading
+//   });
+// }
 
-window.onpopstate = () => {
-  rootDiv.innerHTML = routes[window.location.pathname]
-}
+// window.onpopstate = () => {
+//   rootDiv.innerHTML = routes[window.location.pathname]
+// }
 
 // upon first load, spin up the home page
 onNavigate('/', true);
