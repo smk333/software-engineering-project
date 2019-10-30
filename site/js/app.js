@@ -1,3 +1,13 @@
+var START_APP = function()
+{
+  
+  var js = ["js/DecentralizedFitness.js", "js/HomePageView.js", "js/AddDataView.js", "js/StatsVisualizationsView.js"];
+  var $head = $("head");
+  for (var i = 0; i < js.length; i++) {
+    $head.append("<script src=\"" + js[i] + "\"></scr" + "ipt>");
+  }
+  $head.append('<script src="js/DecentralizedFitness.js"></script>');
+
 /*******************************************************************************
     App Main Code:
     Run the app
@@ -37,3 +47,5 @@ window.onpopstate = () => {
 
 // upon first load, spin up the home page
 onNavigate('/');
+
+};

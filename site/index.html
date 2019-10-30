@@ -6,10 +6,21 @@
 <link rel="stylesheet" href="fontawesome-free-5.11.2-web/css/all.css">
 <link rel="stylesheet" href="css/lib/bootstrap.css">
 <link rel="stylesheet" href="css/index.css">
+<!-- Main App -->
+<script src="js/DecentralizedFitness.js"></script>
+<script src="js/HomePageView.js"></script>
+<script src="js/AddDataView.js"></script>
+<script src="js/StatsVisualizationsView.js"></script>
+<script src="js/app.js"></script>
+
+<!-- Login (starts main app) -->
+<script src="js/loginSys.js"></script>
 <title>Decentralized Fitness App</title>
 </head>
-<body>
+<body onload="loginSystem();">
 <div id="app-main">
+    
+  
     <div class="container-fluid" id="main-container">
         <div class="container" id="login-container">
             <div class="row">
@@ -30,7 +41,7 @@
                             <label for="loginPassword">Password</label>
                             <input type="password" class="form-control" id="loginPassword" placeholder="Password">
                         </div>
-                        <a href="app.html"><button type="button" class="btn btn-primary" id="loginSubmitBtn">Log In</button></a>
+                        <button type="button" class="btn btn-primary" id="loginSubmitBtn">Log In</button>
                         <button type="button" class="btn" id="loginForgotPasswordBtn">Forgot Password</button>
                     </form>
                 </div>
