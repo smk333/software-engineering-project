@@ -1,0 +1,74 @@
+
+<div id="rootHome" class="appPageRoot">
+    <!-- navigation based on github repo mentioned here https://medium.com/altcampus/implementing-simple-spa-routing-using-vanilla-javascript-53abe399bf3c -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#" onclick="onNavigate('/'); return false;">Decentralized Fitness</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#" onclick="onNavigate('/'); return false;">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Devices</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Reminders</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Goals</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Reminders</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li> -->
+            </ul>
+        </div>
+    </nav>
+
+    <div id="statVisPageContainer" class="mainContentsContainer">
+        <div class="container full-container">
+            <div class="row tall-row">
+                <div class="col tall-column">
+                        <div class="backToHomeActionContainer">
+                            <div id="addDataBackToHomeButtonCont" onclick="onNavigate('/'); return false; ">
+                                <i class="fas fa-arrow-alt-circle-left"></i>
+                                BACK
+                            </div>
+                        </div>
+                                
+                        <ul class="nav">
+                                <li class="nav-item" id="tabBtnPersonalStats">
+                                    <a class="nav-link active" href="#">Distance</a>
+                                </li>
+                                <li class="nav-item" id="tabBtnCommunityStats">
+                                    <a class="nav-link" href="#">Food</a>
+                                </li>
+                                <li class="nav-item" id="tabBtnCommunityStats">
+                                    <a class="nav-link" href="#">Heart Rate</a>
+                                </li>
+                            </ul>
+
+                            <div id="statsVisCont">
+                                <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <input type="radio" name="statType" value="personal">Personal Stats<br>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <input type="radio" name="statType" value="community">Relative Community Stats<br>
+                                        </li>
+
+                                        <div id="tester" style="width:600px;height:250px;"></div>
+                                </ul>
+                                    
+                            </div>
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

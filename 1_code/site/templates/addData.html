@@ -1,0 +1,80 @@
+
+<div id="rootHome" class="appPageRoot">
+    <!-- navigation based on github repo mentioned here https://medium.com/altcampus/implementing-simple-spa-routing-using-vanilla-javascript-53abe399bf3c -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#" onclick="onNavigate('/'); return false;">Decentralized Fitness</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#" onclick="onNavigate('/'); return false;">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Devices</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Reminders</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Goals</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Reminders</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li> -->
+            </ul>
+        </div>
+    </nav>
+
+    <div id="addDataPageContainer" class="mainContentsContainer">
+        <div class="container full-container">
+            <div class="row tall-row">
+                <div class="col tall-column">
+                        <div class="backToHomeActionContainer">
+                            <div id="addDataBackToHomeButtonCont" onclick="onNavigate('/'); return false; ">
+                                <i class="fas fa-arrow-alt-circle-left"></i>
+                                BACK
+                            </div>
+                        </div>
+                        <div class="dataEntryFormContent">
+                                Data Type:
+                                <select class="form-control form-control-lg" id="addDataHealthDataTypeSelect">
+                                        <option>Sleep</option>
+                                        <option>Food</option>
+                                        <option>Walking distance</option>
+                                        <option>Heart Rate</option>
+                                </select>
+                                
+                                Units:
+                                <select class="form-control form-control-lg" id="addDataHealthDataTypeSelect">
+                                        <option>Hours</option>
+                                        <option>Calories</option>
+                                        <option>Steps</option>
+                                        <option>Kilometers</option>
+                                        <option>Miles</option>
+                                        <option>BPM</option>
+                                </select>
+                        </div>
+                        
+                    </div>
+                    <div class="col tall-column col-dark">
+                        <h3>Data Entry</h3>
+                        <div class="dataEntryFormContent">
+                        <form>
+                            <div class="form-group">
+                                <label for="dataEntryInput">Data</label>
+                                <input type="text" class="form-control" id="dataEntryInput" aria-describedby="emailHelp" placeholder="Enter today's data">
+                            </div>
+                            <button type="button" id="submitDataEntry" class="btn btn-primary">Submit</button>
+                        </form>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div>
