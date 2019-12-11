@@ -118,3 +118,29 @@ position: absolute;
 top: 50%;
 
 }
+
+/*******************************************************************************
+    STATS VIS PAGE
+*******************************************************************************/
+
+#plots-stats-viewer-pane-cont
+{
+    margin: 1em;
+    background-color: #3498db;
+    border-radius: 3px;
+    padding-bottom: 30px;
+}
+
+#statsVisCont
+{
+    margin: .75em;
+}
+
+.plot-view-type-tab
+{
+    color: white;
+}
+.selected-plot-type
+{
+    background-color: #1d65a1;
+}

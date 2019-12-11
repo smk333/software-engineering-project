@@ -40,33 +40,40 @@
                                 BACK
                             </div>
                         </div>
-                                
-                        <ul class="nav">
-                                <li class="nav-item" id="tabBtnPersonalStats">
-                                    <a class="nav-link active" href="#">Distance</a>
+                              
+                        <div id="plots-stats-viewer-pane-cont">
+                            <ul class="nav">
+                                <li class="nav-item plot-view-type-tab selected-plot-type" id="tabBtnPersonalStats">
+                                    <p class="nav-link active">Distance</p>
                                 </li>
-                                <li class="nav-item" id="tabBtnCommunityStats">
-                                    <a class="nav-link" href="#">Food</a>
+                                <li class="nav-item plot-view-type-tab" id="tabBtnCommunityStats">
+                                    <p class="nav-link">Food</p>
                                 </li>
-                                <li class="nav-item" id="tabBtnCommunityStats">
-                                    <a class="nav-link" href="#">Heart Rate</a>
+                                <li class="nav-item plot-view-type-tab" id="tabBtnCommunityStats">
+                                    <p class="nav-link">Heart Rate</p>
                                 </li>
                             </ul>
 
                             <div id="statsVisCont">
                                 <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <input type="radio" name="statType" value="personal">Personal Stats<br>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <input type="radio" name="statType" value="community">Relative Community Stats<br>
-                                        </li>
+                                    <li class="list-inline-item">
+                                        <input type="radio" name="statType" value="personal" checked="checked" >Personal Stats<br>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <input type="radio" name="statType" value="community">Relative Community Stats<br>
+                                    </li>
 
-                                        <div id="tester" style="width:600px;height:250px;"></div>
+                                    Units: <select id="plot-units-select">
+
+                                    </select>
+
+                                    <div id="health-plot-cont" style="width:600px;height:340px;">
+                                        <p id="plot-loading-text" style="margin:1em">Loading...</p>
+                                    </div>
                                 </ul>
                                     
                             </div>
-
+                        </div>
                     </div>
             </div>
         </div>
