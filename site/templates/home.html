@@ -32,12 +32,16 @@
 
     <div id="homePageContainer" class="mainContentsContainer">
         <div id="homePageUserSideBar">
-            profile
-            pic
-            username
-            bio
-            settings
-            logout
+            <div id="profile-page">
+                <img id="profile-image" src="../imgs/p1.jpg" />
+            </div>
+            <h3>Hello!</h3>
+            <h5>About me</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis vehicula mauris, ac condimentum lectus varius vitae. Donec sed fermentum est, a sollicitudin risus.</p>
+            <div id="profile-btns-cont">
+                <button class="btn btn-primary">Settings</button>
+                <button class="btn btn-secondary" onclick="location.reload()">Log out</button>
+            </div>
         </div>
         <div class="container" id="homePageActionsContainer">
             <div class="col" id="homeActionsPanel">
@@ -46,20 +50,20 @@
                         <div class="row">
                             <div class="col">
                                 <div class="card homePageActionCard" style="width: 18rem;">
-                                    <img class="card-img-top" src="..." alt="Card image cap">
                                     <div class="card-body">
                                         <h5 class="card-title">Quick Stats</h5>
-                                        <p class="card-text">## SAMPLE VISUALIZATIONS ##</p>
+                                        <i class="fa fa-chart-bar" style="font-size: 8rem; margin:1rem"></i>
+                                        <br/>
                                         <button class="btn btn-primary" id="homepageCardBtnNavToStats">View Stats</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="card homePageActionCard" style="width: 18rem;">
-                                    <img class="card-img-top" src="..." alt="Card image cap">
                                     <div class="card-body">
                                         <h5 class="card-title">Add Data</h5> 
-                                        <p class="card-text">## QUICK ADD DATA ICON ##</p>
+                                        <i class="fa fa-plus-square" style="font-size: 8rem; margin:1rem"></i>
+                                        <br/>
                                         <button class="btn btn-primary" id="homepageCardBtnNavToAddData">Add Data</button>
                                     </div>
                                 </div>
@@ -67,20 +71,20 @@
                         <div class="w-100"></div>
                             <div class="col">
                                 <div class="card homePageActionCard" style="width: 18rem;">
-                                    <img class="card-img-top" src="..." alt="Card image cap">
                                     <div class="card-body">
                                         <h5 class="card-title">Community Highlights</h5>
-                                        <p class="card-text">## LATEST COMMUNITY POST ##</p>
+                                        <i class="fa fa-users" style="font-size: 8rem; margin:1rem"></i>
+                                        <br/>
                                         <a class="btn btn-primary">Go to Feed</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="card homePageActionCard" style="width: 18rem;">
-                                    <img class="card-img-top" src="..." alt="Card image cap">
                                     <div class="card-body">
                                         <h5 class="card-title">Quick Goal Progress</h5>
-                                        <p class="card-text">## SAMPLE GOAL PROGRESS ##</p>
+                                        <i class="fa fa-calendar-check" style="font-size: 8rem; margin:1rem"></i>
+                                        <br/>
                                         <a class="btn btn-primary" id="buttonToGoalsPage">View Goals</a>
                                     </div>
                                 </div>
