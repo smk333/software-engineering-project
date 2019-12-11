@@ -14,6 +14,7 @@ var StatsVisualizationsView = function(sessionKey){
     this.url = '/statvis';
     this.sessionKey = '';
     this.DATA = {};
+    this.COMMUNITY_DATA = {};
  
     /*
      * Can access this.method
@@ -70,6 +71,7 @@ var StatsVisualizationsView = function(sessionKey){
 
             $(event.currentTarget).addClass('selected-plot-type');
 
+            this.setUnitCateOptions();
             Plotly.deleteTraces('health-plot-cont', 0);
             this.plotData();
         }.bind(this));
@@ -77,6 +79,38 @@ var StatsVisualizationsView = function(sessionKey){
             Plotly.deleteTraces('health-plot-cont', 0);
             this.plotData();
         }.bind(this));
+        $('input[type=radio][name=statType]').on('change', function(event) {
+            switch (event.currentTarget.value) {
+              case 'personal':
+                    this.setUnitCateOptions();
+                    try{
+                        Plotly.deleteTraces('health-plot-cont', 0);
+                        Plotly.deleteTraces('health-plot-cont', 0);
+                        Plotly.deleteTraces('health-plot-cont', 0);
+                        Plotly.deleteTraces('health-plot-cont', 0);
+                        Plotly.deleteTraces('health-plot-cont', 0);
+                    }
+                    catch{
+
+                    }
+                    this.plotData();
+                break;
+              case 'community':
+                    this.setUnitCateOptions();
+                    try{
+                        Plotly.deleteTraces('health-plot-cont', 0);
+                        Plotly.deleteTraces('health-plot-cont', 0);
+                        Plotly.deleteTraces('health-plot-cont', 0);
+                        Plotly.deleteTraces('health-plot-cont', 0);
+                        Plotly.deleteTraces('health-plot-cont', 0);
+                    }
+                    catch{
+                        
+                    }
+                    this.plotCommunityData();
+                break;
+            }
+          }.bind(this));
 
         this.setUnitCateOptions();
 
@@ -136,6 +170,68 @@ var StatsVisualizationsView = function(sessionKey){
               console.log(response);
             }
           });
+          this.COMMUNITY_DATA = {};
+          $.ajax({
+              type: "POST",
+              url: 'getCommunityData.php',
+              dataType: 'json',
+              data: {'sessionId' : this.sessionKey},
+              success: function (response) {
+                  for(var i = 0; i < response.length; ++i)
+                  {
+                      var id = response[i]['username'];
+                      var u = response[i]['unit'];
+                      var c = response[i]['category'];
+                      var v = response[i]['value'];
+                      var t = response[i]['sys_timestamp'];
+  
+                      var idData = this.COMMUNITY_DATA[id];
+                      if(idData == undefined)
+                      {
+                          var idData = {};
+                      }
+                      
+                      if(idData[c] == undefined || idData[c][u] == undefined)
+                      {
+                          // new category/unit
+                          if(idData[c] == undefined)
+                          {
+                              idData[c] = {};
+                          }
+                          idData[c][u] = [{ // unit -> data
+                              value: v,
+                              time: t
+                          }];
+                      }
+                      else
+                      {
+                          // existing category, maybe new unit
+                          var catData = idData[c];
+  
+                          // new unit
+                          if(catData[u] == undefined)
+                          {
+                              catData[u] = {
+                                  u : []
+                              };
+                          }
+  
+                          // add data
+                          var values = catData[u].push({
+                              value: v,
+                              time: t
+                          });
+  
+                          idData[c] = catData;
+                      }
+
+                      this.COMMUNITY_DATA[id] = idData;
+                  }
+              }.bind(this),
+              error: function (response) {
+                console.log(response);
+              }
+            });
     }
  
     /*
@@ -147,6 +243,93 @@ var StatsVisualizationsView = function(sessionKey){
  
         myPrivateMethod();
     };
+
+    this.plotCommunityData = function()
+    {
+        var PLOT = document.getElementById('health-plot-cont');
+
+        // get currently selected type and units
+        var selectedTab = $('.selected-plot-type')[0];
+        var type = selectedTab.children[0].innerText;
+        var units = $('#plot-units-select').val();
+
+        // get matching data
+        var plottingData = this.DATA[type.toLocaleLowerCase()][units.toLocaleLowerCase()];
+        var x = [];
+        var y = [];
+        for(var i = 0; i < plottingData.length; ++i)
+        {
+            x.push(plottingData[i].time);
+            y.push(plottingData[i].value);
+        }
+
+        var traces = [{
+            x: x,
+            y: y,
+            name: "My Data" }];
+        
+            
+        // get community average
+        var keys = Object.keys(this.COMMUNITY_DATA);
+        var commonTimes = [];
+        var averageValues = [];
+        for(var j = 0; j < traces[0].x.length; ++j)
+        {
+            var t = traces[0].x[j];
+            var commonTime = t.substr(0,10);
+
+            var xVals = [];
+            for(var i = 0; i < keys.length; ++i)
+            {
+                var key = keys[i];
+                var data = this.COMMUNITY_DATA[key][type.toLocaleLowerCase()][units.toLocaleLowerCase()];
+                var x = [];
+                var y = [];
+                for(var n = 0; n < data.length; ++n)
+                {
+                    var t_possible = data[n].time;
+                    if(t_possible.substr(0,10).indexOf(commonTime) >= 0)
+                    {
+                        xVals.push(data[n].value);
+                    }
+                }
+            }
+
+            if(xVals.length > 0)
+            {
+                var average = 0;
+                xVals.forEach(p => {average += parseFloat(p);});
+                average /= xVals.length;
+
+                commonTimes.push(commonTime);
+                averageValues.push(average);
+            }
+        }
+
+        traces.push({
+            x: commonTimes,
+            y: averageValues,
+            name: "Community Average" });
+
+        $('#plot-loading-text').css('visibility', 'hidden'); // clear loading before plotting
+        $('#plot-loading-text').css('height', '0px'); // clear loading before plotting
+        
+        Plotly.plot( PLOT, traces, {
+        title: {
+            text:'My Data for ' + type + ' vs Community Average'
+          },
+          xaxis: {
+            title: {
+              text: 'Entry Timestamp',
+            },
+          },
+          yaxis: {
+            title: {
+              text: 'Value ['+units+']',
+            }
+          }
+        } );
+    }
 
     this.plotData = function()
     {
