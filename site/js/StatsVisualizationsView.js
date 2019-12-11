@@ -13,6 +13,7 @@ var StatsVisualizationsView = function(sessionKey){
     this.template = '/templates/vis.html';
     this.url = '/statvis';
     this.sessionKey = '';
+    this.DATA = {};
  
     /*
      * Can access this.method
@@ -43,6 +44,20 @@ var StatsVisualizationsView = function(sessionKey){
         x: [1, 2, 3, 4, 5],
         y: [1, 2, 4, 8, 16] }], {
         margin: { t: 0 } } );
+
+        $.ajax({
+            type: "POST",
+            url: 'getFitnessData.php',
+            //url: 'dbtest.php',
+            dataType: 'json',
+            data: {'sessionId' : this.sessionKey},
+            success: function (response) {
+              console.log(response);
+            },
+            error: function (response) {
+              console.log(response);
+            }
+          });
     }
  
     /*

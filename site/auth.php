@@ -23,6 +23,9 @@ try {
     if(sizeof($r) == 0)
     {
         $obj = (object) [
+            'username' => $u,
+            'pass' => $p,
+            'query' => $authQuery,
             'userAuth' => false
         ];
         echo json_encode($obj);

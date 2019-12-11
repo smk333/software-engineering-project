@@ -39,7 +39,7 @@ var loginSystem = function()
         error: function (response) {
           console.log(response);
         }
-    });
+      });
 
     }.bind(this));
   }
@@ -60,7 +60,7 @@ var loginSystem = function()
     var safeUsernameInput = username;
     var safePasswordInput = password;
 
-    return {u: safePasswordInput, p: safePasswordInput};
+    return {u: safeUsernameInput, p: safePasswordInput};
   }
 
   init();
