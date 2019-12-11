@@ -164,3 +164,22 @@ top: 50%;
     margin-right: 10%;
     padding: .5em;
 }
+
+#feed-posts-cont
+{
+    background-color: #3498db;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: .5em;
+    height: 100%;
+}
+
+#posts-feed
+{
+    height: 80%;
+    overflow: scroll;
+}
+#post-something-cont
+{
+    height: 20%;
+}

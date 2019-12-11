@@ -41,6 +41,9 @@ var HomePageView = function(sessionKey){
         $('#buttonToGoalsPage').on('click', function(e){
             onNavigate('/goals');
         });
+        $('#buttonToCommunityFeed').on('click', function(e){
+            onNavigate('/community');
+        });
 
         
     }

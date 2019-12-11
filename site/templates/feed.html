@@ -1,0 +1,58 @@
+
+<div id="rootHome" class="appPageRoot">
+    <!-- navigation based on github repo mentioned here https://medium.com/altcampus/implementing-simple-spa-routing-using-vanilla-javascript-53abe399bf3c -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#" onclick="onNavigate('/'); return false;">Decentralized Fitness</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" onclick="onNavigate('/'); return false;">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Devices</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Reminders</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Goals</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li> -->
+            </ul>
+        </div>
+    </nav>
+
+    <div id="communityFeedContainer" class="mainContentsContainer">
+        <div class="container full-container">
+            <div class="row tall-row">
+                <div class="col tall-column">
+                        <div class="backToHomeActionContainer">
+                            <div id="addDataBackToHomeButtonCont" onclick="onNavigate('/'); return false; ">
+                                <i class="fas fa-arrow-alt-circle-left"></i>
+                                BACK
+                            </div>
+                        </div>
+                              
+                        <div id="feed-posts-cont">
+                            <div id="posts-feed">
+                              <div class="feed-post">
+                                  <div class="feed-top-bar"><i class="fas fa-user"></i> User2342</div>
+                                  <p>I just finished 50% of my goal!</p>
+                                    <div class="feed-bottom-bar"><i class="fas fa-user"></i></div>
+                              </div>
+                            </div>
+                            <div id="post-something-cont">
+                                <textarea style="width:100%">My latest accomplishment...</textarea>
+                                <button type="button" class="btn btn-primary">Post</button>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

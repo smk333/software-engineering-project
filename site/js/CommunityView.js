@@ -3,13 +3,16 @@
 /*
  * Main system object, everything exists within here to bridge user interactions with the UI
  */
-var DecentralizedFitness = function(options){
+
+
+var CommunityView = function(sessionKey){
  
     /*
      * Private member variables
      */
-    var m_views = [];
-    var sessionKey;
+    this.template = '/templates/feed.html';
+    this.url = '/community';
+    this.sessionKey = '';
  
     /*
      * Can access this.method
@@ -27,29 +30,10 @@ var DecentralizedFitness = function(options){
     };
 
     var init = function() {
-        console.log('Initizalizing app...');
-
-        // init home view
-        m_views.push(new HomePageView(session));
-        m_views.push(new AddDataView(session));
-        m_views.push(new StatsVisualizationsView(session));
-        m_views.push(new GoalManagementView(session));
-        m_views.push(new CommunityView(session));
-        
-        console.log('Finished initializing app!');
     };
 
-    this.getViewsMappedByUrl = function()
-    {
-        routes = {};
-        for(var i = 0; i < m_views.length; ++i)
-        {
-            var u = m_views[i].url;
-            var t = m_views[i];
-            routes[u] = t;
-        }
-
-        return routes;
+    this.afterRender = function() {
+        
     }
  
     /*
@@ -70,6 +54,6 @@ var DecentralizedFitness = function(options){
         console.log('accessed private method');
     };
     
-    this.construct(options);
+    this.construct(sessionKey);
  
 };
