@@ -3,7 +3,7 @@
 /*
  * Main system object, everything exists within here to bridge user interactions with the UI
  */
-var HomePageView = function(){
+var HomePageView = function(sessionKey){
  
     /*
      * Private member variables
@@ -11,6 +11,7 @@ var HomePageView = function(){
     this.html = '';
     this.template = '/templates/home.html';
     this.url = '/';
+    this.sessionKey = '';
  
     /*
      * Can access this.method
@@ -22,7 +23,8 @@ var HomePageView = function(){
     /*
      * Constructor
      */
-    this.construct = function(){
+    this.construct = function(sessionKey){
+        this.sessionKey = sessionKey;
         init();
     };
 
@@ -56,6 +58,6 @@ var HomePageView = function(){
         console.log('accessed private method');
     };
     
-    this.construct();
+    this.construct(sessionKey);
  
 };

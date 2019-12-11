@@ -5,13 +5,14 @@
  */
 
 
-var AddDataView = function(){
+var AddDataView = function(sessionKey){
  
     /*
      * Private member variables
      */
     this.template = '/templates/addData.html';
     this.url = '/dataEntry';
+    this.sessionKey = '';
  
     /*
      * Can access this.method
@@ -23,7 +24,8 @@ var AddDataView = function(){
     /*
      * Constructor
      */
-    this.construct = function(){
+    this.construct = function(sessionKey){
+        this.sessionKey = sessionKey;
         init();
     };
 
@@ -55,6 +57,6 @@ var AddDataView = function(){
         console.log('accessed private method');
     };
     
-    this.construct();
+    this.construct(sessionKey);
  
 };

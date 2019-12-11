@@ -1,6 +1,6 @@
 
 
-const onNavigate = (pathname, hackFix = true) => {
+const onNavigate = (pathname, hackFix = false) => {
   const rootDiv = document.getElementById('root');
   window.history.pushState(
     {},

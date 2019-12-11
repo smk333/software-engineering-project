@@ -9,6 +9,7 @@ var DecentralizedFitness = function(options){
      * Private member variables
      */
     var m_views = [];
+    var sessionKey;
  
     /*
      * Can access this.method
@@ -20,7 +21,8 @@ var DecentralizedFitness = function(options){
     /*
      * Constructor
      */
-    this.construct = function(){
+    this.construct = function(sessionKey){
+        this.sessionKey = sessionKey;
         init();
     };
 
@@ -28,9 +30,9 @@ var DecentralizedFitness = function(options){
         console.log('Initizalizing app...');
 
         // init home view
-        m_views.push(new HomePageView());
-        m_views.push(new AddDataView());
-        m_views.push(new StatsVisualizationsView());
+        m_views.push(new HomePageView(session));
+        m_views.push(new AddDataView(session));
+        m_views.push(new StatsVisualizationsView(session));
 
         console.log('Finished initializing app!');
     };
@@ -66,6 +68,6 @@ var DecentralizedFitness = function(options){
         console.log('accessed private method');
     };
     
-    this.construct();
+    this.construct(options);
  
 };

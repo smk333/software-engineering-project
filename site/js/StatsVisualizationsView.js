@@ -4,7 +4,7 @@
  * Main system object, everything exists within here to bridge user interactions with the UI
  */
 
-var StatsVisualizationsView = function(){
+var StatsVisualizationsView = function(sessionKey){
  
     /*
      * Private member variables
@@ -12,6 +12,7 @@ var StatsVisualizationsView = function(){
     this.html = '';
     this.template = '/templates/vis.html';
     this.url = '/statvis';
+    this.sessionKey = '';
  
     /*
      * Can access this.method
@@ -23,7 +24,8 @@ var StatsVisualizationsView = function(){
     /*
      * Constructor
      */
-    this.construct = function(){
+    this.construct = function(sessionKey){
+        this.sessionKey = sessionKey;
         init();
     };
 
@@ -61,6 +63,6 @@ var StatsVisualizationsView = function(){
         console.log('accessed private method');
     };
     
-    this.construct();
+    this.construct(sessionKey);
  
 };

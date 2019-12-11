@@ -6,7 +6,7 @@ var loginSystem = function()
     $('#loginSubmitBtn').on('click', function(e){
       var credentials = validateInput($('#loginUsername').val(), $('#loginPassword').val());
       var sessionId = create_UUID();
-      sessionId = 'testing';
+      console.log("DEBUGGING: Session Key:  " + sessionId);
       // rewrite clean credentials to page before attempting to access from php
       
       // try to auth user data and if it works, create a session schema, send the key to the app, and start up the app
@@ -33,7 +33,7 @@ var loginSystem = function()
             $('head').append(html);
 
             // start app
-            MAIN_APP();
+            MAIN_APP(response['session']);
           }
         },
         error: function (response) {
@@ -65,52 +65,21 @@ var loginSystem = function()
 
   init();
 
-  var _DecentralizedFitness = new DecentralizedFitness();
+  //var _DecentralizedFitness = new DecentralizedFitness();
 
-  var MAIN_APP = function()
+  var MAIN_APP = function(sessionKey)
   {
 
     /*******************************************************************************
     App Main Code:
     Run the app
-*******************************************************************************/
+    *******************************************************************************/
 
-var df = new DecentralizedFitness();
+    this.session = sessionKey;
+    var df = new DecentralizedFitness(this.session);
+    routes = df.getViewsMappedByUrl();
 
-/*******************************************************************************
-    Nav Stuff: Only touch this if you really know what you're doing
-*******************************************************************************/
-routes = df.getViewsMappedByUrl();
-
-// const rootDiv = document.getElementById('root');
-
-// const onNavigate = (pathname, hackFix = false) => {
-//   window.history.pushState(
-//     {},
-//     pathname,
-//     window.location.origin + pathname
-//   )
-
-//   rootDiv.innerHTML = '<div class="loader"></div>';
-
-//   var url = (hackFix) ? 'site/' + routes[pathname].template : routes[pathname].template;
-//   jQuery.ajax({
-//       url: url,
-//       success: function (data) {
-//         rootDiv.innerHTML = data;
-//         routes[pathname].afterRender(this);
-//       },
-//       async: false //async so this is done upon loading
-//   });
-// }
-
-// window.onpopstate = () => {
-//   rootDiv.innerHTML = routes[window.location.pathname]
-// }
-
-// upon first load, spin up the home page
-onNavigate('/', true);
-
-
+    // upon first load, spin up the home page
+    onNavigate('/', false);
   }
 }
