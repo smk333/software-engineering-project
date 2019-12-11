@@ -1,7 +1,7 @@
 var START_APP = function(sessionKey)
 {
   this.sessionKey = sessionKey;
-  var js = ["js/DecentralizedFitness.js", "js/HomePageView.js", "js/AddDataView.js", "js/StatsVisualizationsView.js"];
+  var js = ["js/DecentralizedFitness.js", "js/HomePageView.js", "js/AddDataView.js", "js/StatsVisualizationsView.js", "js/GoalManagementView.js"];
   var $head = $("head");
   for (var i = 0; i < js.length; i++) {
     $head.append("<script src=\"" + js[i] + "\"></scr" + "ipt>");

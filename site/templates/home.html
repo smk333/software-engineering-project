@@ -2,29 +2,29 @@
 <div id="rootHome" class="appPageRoot">
     <!-- navigation based on github repo mentioned here https://medium.com/altcampus/implementing-simple-spa-routing-using-vanilla-javascript-53abe399bf3c -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#" onclick="onNavigate('/'); return false;">Decentralized Fitness</a>
+        <a class="navbar-brand" onclick="onNavigate('/'); return false;">Decentralized Fitness</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#" onclick="onNavigate('/'); return false;">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" onclick="onNavigate('/'); return false;">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Devices</a>
+                <a class="nav-link">Devices</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Reminders</a>
+                <a class="nav-link">Reminders</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Goals</a>
+                <a class="nav-link">Goals</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Reminders</a>
+                <a class="nav-link">Reminders</a>
             </li>
             <!-- <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
+                <a class="nav-link disabled">Disabled</a>
             </li> -->
             </ul>
         </div>
@@ -71,7 +71,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Community Highlights</h5>
                                         <p class="card-text">## LATEST COMMUNITY POST ##</p>
-                                        <a href="#" class="btn btn-primary">Go to Feed</a>
+                                        <a class="btn btn-primary">Go to Feed</a>
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Quick Goal Progress</h5>
                                         <p class="card-text">## SAMPLE GOAL PROGRESS ##</p>
-                                        <a href="#" class="btn btn-primary">View Goals</a>
+                                        <a class="btn btn-primary" id="buttonToGoalsPage">View Goals</a>
                                     </div>
                                 </div>
                             </div>

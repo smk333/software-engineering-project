@@ -38,6 +38,11 @@ var HomePageView = function(sessionKey){
         $('#homepageCardBtnNavToStats').on('click', function(e){
             onNavigate('/statvis');
         });
+        $('#buttonToGoalsPage').on('click', function(e){
+            onNavigate('/goals');
+        });
+
+        
     }
  
     /*

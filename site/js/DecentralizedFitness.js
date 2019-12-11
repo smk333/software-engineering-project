@@ -33,7 +33,8 @@ var DecentralizedFitness = function(options){
         m_views.push(new HomePageView(session));
         m_views.push(new AddDataView(session));
         m_views.push(new StatsVisualizationsView(session));
-
+        m_views.push(new GoalManagementView(session));
+        
         console.log('Finished initializing app!');
     };
 
