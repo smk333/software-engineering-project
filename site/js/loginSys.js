@@ -3,6 +3,16 @@ var loginSystem = function()
 
   var init = function(){
     // set up event listeners
+    $('#loginBtnRegister').one('click', function(e){
+      $('#registernewuser').css('visibility', 'visible');
+      $('#registernewuser').css('height', 'auto');
+      $('#loginBtnRegister').text('Confirm new user');
+      
+      $('#loginBtnRegister').one('click', function(e){
+        location.reload();
+      });
+    });
+
     $('#loginSubmitBtn').on('click', function(e){
       var credentials = validateInput($('#loginUsername').val(), $('#loginPassword').val());
       var sessionId = create_UUID();

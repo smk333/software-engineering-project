@@ -40,13 +40,24 @@
                     <form id="loginForm">
                         <div class="form-group">
                             <label for="loginUsername">Username</label>
-                            <input type="text" class="form-control" id="loginUsername" placeholder="Enter Username" value="test">
+                            <input type="text" class="form-control" id="loginUsername" placeholder="Enter Username" value="">
                         </div>
                         <div class="form-group">
                             <label for="loginPassword">Password</label>
-                            <input type="password" class="form-control" id="loginPassword" placeholder="Password" value="test">
+                            <input type="password" class="form-control" id="loginPassword" placeholder="Password" value="">
+                        </div>
+                        <div id="registernewuser" style="visibility: hidden; height: 0px;">
+                            <div class="form-group">
+                                <label for="p">Confirm Password</label>
+                                <input type="password" class="form-control" id="p" placeholder="Password" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="e">Email Address</label>
+                                <input type="text" class="form-control" id="e" placeholder="Enter valid email address" value="">
+                            </div>
                         </div>
                         <button type="button" class="btn btn-primary" id="loginSubmitBtn">Log In</button>
+                        <button type="button" class="btn btn-secondary" id="loginBtnRegister">Register</button>
                         <button type="button" class="btn" id="loginForgotPasswordBtn">Forgot Password</button>
                     </form>
                 </div>
